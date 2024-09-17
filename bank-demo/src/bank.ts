@@ -43,4 +43,22 @@ export default class Bank {
         this.accounts.push(account);
         return account;
     }
+
+    /**
+     * Deposits money into an account.
+     * @param accountNumber -- account number to deposit into
+     * @param amount -- amount to deposit
+     * @returns number -- the new balance
+     */
+    public deposit(accountNumber: string, amount: number): number {
+        const account = this.findAccount(accountNumber);
+        if (!account) {
+            throw new Error("Account not found");
+        }
+        if (amount <= 0) {
+            throw new Error("Deposit amount must be positive");
+        }
+        account.balance += amount;
+        return account.balance;
+    }
 }
