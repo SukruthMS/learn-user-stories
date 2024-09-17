@@ -40,3 +40,31 @@ try {
 catch (_) {
     console.log("Deposit - Scenario 2 passed");
 }
+
+// Withdraw tests
+// scenario 1
+const newBalanceAfterWithdraw = bank.withdraw("2938298", 50);
+if (newBalanceAfterWithdraw == 50) {
+    console.log("Withdraw - Scenario 1 passed");
+}
+else {
+    console.log("Withdraw - Scenario 1 failed");
+}
+
+// scenario 2
+try {
+    bank.withdraw("2938298", 100);
+    console.log("Withdraw Insufficient funds - Scenario 2 failed");
+}
+catch (_) {
+    console.log("Withdraw Insufficient funds - Scenario 2 passed");
+}
+
+// scenario 3
+try {
+    bank.withdraw("2938298", -50);
+    console.log("Withdraw Negative Amount - Scenario 3 failed");
+}
+catch (_) {
+    console.log("Withdraw Negative Amount - Scenario 3 passed");
+}
