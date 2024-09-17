@@ -68,3 +68,22 @@ try {
 catch (_) {
     console.log("Withdraw Negative Amount - Scenario 3 passed");
 }
+
+// Check Balance tests
+// scenario 1
+const balance = bank.getBalance("2938298");
+if (balance == 50) {
+    console.log("Check Balance - Scenario 1 passed");
+}
+else {
+    console.log("Check Balance - Scenario 1 failed");
+}
+
+// scenario 2
+try {
+    bank.getBalance("9999999");
+    console.log("Check Balance - Invalid Account - Scenario 2 failed");
+}
+catch (_) {
+    console.log("Check Balance - Invalid Account - Scenario 2 passed");
+}
